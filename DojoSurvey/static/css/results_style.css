@@ -1,0 +1,13 @@
+#result {
+    width: 30%;
+    height: auto;
+    margin: 20px auto;
+    border: 3px solid black;
+}
+#button {
+    display: block;
+    margin-left: 87%;
+    width: auto;
+    color: white;
+    background: lightblue;
+}

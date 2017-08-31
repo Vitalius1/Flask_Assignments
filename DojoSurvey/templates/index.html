@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dojo Survey Index</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'css/index_style.css')}}">
+</head>
+
+<body>
+    <div id="form">
+        <form action="result" method="post">
+            <label for="name">Your Name:</label>
+            <input type="text" name="name">
+            {% with messages = get_flashed_messages(category_filter=["nameError"]) %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <label for="location">Dojo Location:</label>
+            <select name="location">
+                <option value="Seatle">Seattle</option>
+                <option value="Silicon Valey">Silicon Valey</option>
+                <option value="Chicago">Chicago</option>
+                <option value="Dallas">Dallas</option>
+                <option value="Los Angeles">Los Angeles</option>
+                <option value="Washington DC">Washington DC</option>
+                <option value="Tulsa">Tulsa</option>
+            </select>
+            <label for="language">Favorite Language:</label>
+            <select name="language">
+                <option value="Python">Python</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="MEAN">MEAN</option>
+                <option value="C#">C#</option>
+                <option value="Ruby">Ruby</option>
+            </select>
+            <label for="comments" id="com">Comment (optional)</label>
+            <textarea name="comments" id="" cols="" rows="10"></textarea>
+            {% with messages = get_flashed_messages(category_filter=["comError"]) %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <input type="submit" id="button" value="Button">
+        </form>
+    </div>
+</body>
+
+</html>
